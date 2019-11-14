@@ -1,0 +1,21 @@
+<!--播放页面-->
+<view class="box">
+<image class="bg" src="{{imgsrc}}"></image>
+<view class="title">{{name}}</view>
+<swiper class="main">
+<swiper-item class="item01  ">
+<image style="animation-play-state:{{state=='play'?'play':'paused'}}" src="{{imgsrc}}"></image>
+</swiper-item>
+<swiper-item   class="item02">
+<scroll-view scroll-y="true" class="lyric" scroll-top="{{top}}">
+<text wx:for="{{lrc_data}}" wx:for-index="in" class="{{index==in ?'color':''}}">{{item[1]}}</text>
+</scroll-view>
+</swiper-item>
+</swiper>
+</view>
+<view class="btn_box">
+<image src="/images/prev.png"></image>
+<image src="{{state=='play'?'/images/pause.png':'/images/play.png'}}" bindtap="click_play"></image>
+<image src="/images/next.png"></image>
+</view>
+<audio bindtimeupdate="timechange" action="{{action}}" src="http://music.163.com/song/media/outer/url?id={{music_id}}.mp3"></audio>

@@ -1,0 +1,26 @@
+<!-- 歌单界面 
+    轮播图
+ -->
+ <swiper class="banner" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#c20c0c"
+        autoplay="true" interval="3000" circular="true">
+        <block wx:for="{{background}}">
+          <swiper-item class="banner-item">
+           <image src="{{item}}"></image>
+          </swiper-item>
+        </block>
+  </swiper>
+  <view class="box"  wx:for="{{music_list}}">
+      
+      <view class="img">
+      <image src="{{item.img}}">
+      </image>
+      </view>
+      <view class="txt_box">
+      <view>{{item.name}}</view>
+      <view>{{item.title}}</view>
+      </view>
+       <view class="play_box">
+       <image src="/images/play.png" bindtap="gotoplay" data-id="{{item.id}}"></image>
+       </view>
+  </view>
+
